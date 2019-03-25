@@ -95,12 +95,9 @@ const App = ({ values, errors, touched }) => (
         <div>
           <label
             className={
-              touched.birthMonth &&
-              errors.birthMonth &&
-              touched.birthDay &&
-              errors.birthDay &&
-              touched.birthYear &&
-              errors.birthYear
+              (touched.birthMonth && errors.birthMonth) ||
+              (touched.birthDay && errors.birthDay) ||
+              (touched.birthYear && errors.birthYear)
                 ? "error"
                 : ""
             }
@@ -210,10 +207,9 @@ const App = ({ values, errors, touched }) => (
               <p> Passwords Don't Match</p>
             </li>
           )}
-          {touched.birthMonth &&
-            errors.birthMonth &&
-            (touched.birthDay && errors.birthDay) &&
-            (touched.birthYear && errors.birthYear) && (
+          {((touched.birthMonth && errors.birthMonth) ||
+            (touched.birthDay && errors.birthDay) ||
+            (touched.birthYear && errors.birthYear)) && (
               <li>
                 <p>Invalid BirthDate</p>
               </li>
