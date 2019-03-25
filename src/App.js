@@ -355,5 +355,6 @@ export const SevenElevenForm = withFormik({
 
   handleSubmit(values) {
     console.log(values);
+    alert('your form is submitted successfull.You can able to see all form fields value in console.')
   }
 })(App);
